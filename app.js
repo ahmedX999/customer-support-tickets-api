@@ -25,7 +25,10 @@ const ticketRoutes = require('./routes/ticketRoutes');
 app.use('/api/users', userRoutes);
 app.use('/api/tickets', ticketRoutes);
 app.get('/', (req, res) => {
-  res.send('Welcome to the Support Ticket Service API');
+  res.status(200).send(`
+    <h1>Welcome to the Support Ticket Service API</h1>
+    <p>Please visit <a href="/api-docs">Api Documentation</a> for more information.</p>
+  `);
 });
 
 // CDN CSS
