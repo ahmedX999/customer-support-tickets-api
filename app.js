@@ -28,6 +28,9 @@ app.get('/', (req, res) => {
   res.send('Welcome to the Support Ticket Service API');
 });
 
+// CDN CSS
+const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
+
 // Swagger setup
 const options = {
   definition: {
@@ -135,6 +138,6 @@ const options = {
 };
 
 const swaggerSpec = swaggerJsdoc(options);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, { customCss: CSS_URL }));
 
 module.exports = app;
