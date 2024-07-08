@@ -24,6 +24,9 @@ const ticketRoutes = require('./routes/ticketRoutes');
 
 app.use('/api/users', userRoutes);
 app.use('/api/tickets', ticketRoutes);
+app.get('/', (req, res) => {
+  res.send('Welcome to the Support Ticket Service API');
+});
 
 // Swagger setup
 const options = {
