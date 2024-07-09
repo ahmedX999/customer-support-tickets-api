@@ -60,7 +60,7 @@ npm run dev
 
 #### With Docker Compose
 
-Ensure Docker and Docker Compose are installed. Then run:
+Ensure Docker and Docker Compose are installed and set Environment Variables in docker-compose.yml . Then run:
 
 ```bash
 docker-compose up --build -d
