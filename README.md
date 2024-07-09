@@ -77,9 +77,8 @@ The API documentation is available at `/api-docs` once the server is running. It
 
 - `MONGO_URI`: MongoDB connection string
 - `JWT_SECRET`: Secret key for JWT authentication
-- `EMAIL`: Email address for sending notifications
-- `PASSWORD`: Email account password for sending notifications
-- `PORT`: Port number on which the server runs (default is 5001)
+- `EMAIL_USER`: Email address for sending notifications
+- `EMAIL_PASS`: Email account password for sending notifications
 
 ## Deployment
 
@@ -124,5 +123,5 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 
 - The `README.md` provides a comprehensive overview of the project, including setup, installation, and deployment instructions.
 - It covers environment variables and provides detailed steps for running the application with Node.js, Nodemon, and Docker Compose.
-- Deployment instructions for Heroku and Vercel are included, ensuring the application can be easily deployed and managed.
+- Deployment instructions for Vercel are included, ensuring the application can be easily deployed and managed.
 - API documentation information is provided to help users understand and interact with the API endpoints.
