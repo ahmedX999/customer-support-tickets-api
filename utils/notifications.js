@@ -17,19 +17,19 @@ wss.on('connection', (ws) => {
     });
 });
 
-exports.sendNotification = (userId, message) => {
-    // Send email
-    const transporter = nodemailer.createTransport({
-        service: 'Gmail',
-        auth: {
-            user: process.env.EMAIL,
-            pass: process.env.PASSWORD,
-        },
-    });
+const transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+    },
+});
 
+exports.sendNotification = (email, message) => {
+    // Send email
     const mailOptions = {
         from: process.env.EMAIL,
-        to: 'user@example.com', // Replace with actual user email
+        to: email, // Use the provided email address
         subject: 'Ticket Notification',
         text: message,
     };
@@ -41,9 +41,9 @@ exports.sendNotification = (userId, message) => {
         console.log('Message sent: %s', info.messageId);
     });
 
-    // Send WebSocket message
+    // Send WebSocket message (assuming you have a way to map email to WebSocket connections)
     connections.forEach((ws) => {
-        if (ws.userId === userId) {
+        if (ws.userEmail === email) {
             ws.send(message);
         }
     });

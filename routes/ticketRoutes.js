@@ -6,6 +6,8 @@ const {
     deleteTicket,
     listAllTickets,
     updateTicket,
+    listMyTickets,
+    listMyAssignedTickets
 
 } = require('../controllers/ticketController');
 const { protect, admin, agent } = require('../middleware/auth');
@@ -192,5 +194,51 @@ router.get('/', protect, admin, listAllTickets);
  *               $ref: '#/components/schemas/Ticket'
  */
 router.patch('/:id', protect, agent, updateTicket);
+
+
+
+//listMyTickets
+
+/**
+ * @swagger
+ * /api/tickets/me:
+ *   get:
+ *     summary: List tickets created by authenticated user
+ *     tags: [Tickets]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: List of my tickets
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Ticket'
+ */
+router.get('/me', protect, listMyTickets);
+
+//listMyAssignedTickets
+
+/**
+ * @swagger
+ * /api/tickets/me/assigned:
+ *   get:
+ *     summary: List tickets assigned to authenticated user
+ *     tags: [Tickets]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: List of my assigned tickets
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Ticket'
+ */
+router.get('/me/assigned', protect, listMyAssignedTickets);
 
 module.exports = router;
