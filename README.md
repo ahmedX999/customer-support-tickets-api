@@ -34,8 +34,8 @@ Create a `.env` file in the root directory and add your environment variables:
 ```env
 MONGO_URI=mongodb+srv://<username>:<password>@cluster0.lzabahv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 JWT_SECRET=your_jwt_secret_key
-EMAIL=your_email@gmail.com
-PASSWORD=your_email_password
+EMAIL_USER=your_email@email-provider.com
+EMAIL_PASS=your_email_password
 ```
 
 ### Install Dependencies
@@ -108,8 +108,8 @@ The API documentation is available at `/api-docs` once the server is running. It
 
     - `MONGO_URI`
     - `JWT_SECRET`
-    - `EMAIL`
-    - `PASSWORD`
+    - `EMAIL_USER`
+    - `EMAIL_PASS`
 
 ## License
 
