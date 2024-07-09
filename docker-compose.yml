@@ -7,5 +7,5 @@ services:
     environment:
       - MONGO_URI=
       - JWT_SECRET=
-      - EMAIL=
-      - PASSWORD=
+      - EMAIL_USER=
+      - EMAIL_PASS=
